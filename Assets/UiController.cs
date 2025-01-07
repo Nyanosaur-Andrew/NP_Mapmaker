@@ -52,6 +52,8 @@ public class UiController : MonoBehaviour
         jsonPanel.SetActive(true);
         galaxy.GenerateJson();
         jsonField.text = galaxy.output;
+        jsonField.onFocusSelectAll = true;
+        jsonField.Select();
     }
 
 }
