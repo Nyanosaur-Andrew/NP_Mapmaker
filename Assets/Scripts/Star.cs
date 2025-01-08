@@ -1,4 +1,5 @@
 using UnityEngine;
+using Leguar.TotalJSON;
 
 public class Star : MonoBehaviour
 {
@@ -25,9 +26,12 @@ public class Star : MonoBehaviour
     [UnityEngine.SerializeField]
     public int puid;//the uid of the owning player(optional)
 
+    [ExcludeFromJSONSerialize]
     public float scaleMultipler;
+    [ExcludeFromJSONSerialize]
     public float scaleBaseSize;
 
+    [ExcludeFromJSONSerialize]
     public bool customName = false;
 
     public void Refresh() {

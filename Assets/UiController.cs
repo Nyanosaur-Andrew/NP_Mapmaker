@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
+
 public class UiController : MonoBehaviour
 {
     public Starfield galaxy;
@@ -16,6 +18,12 @@ public class UiController : MonoBehaviour
     public TMP_InputField jsonField;
 
     private Camera cam;
+
+    [DllImport("__Internal")]
+    private static extern void Hello();
+
+    [DllImport("__Internal")]
+    private static extern void AddText(string textin);
 
     void Start()
     {
@@ -49,11 +57,12 @@ public class UiController : MonoBehaviour
     }
 
     public void GenerateJson() {
-        jsonPanel.SetActive(true);
+        //jsonPanel.SetActive(true);
         galaxy.GenerateJson();
         jsonField.text = galaxy.output;
-        jsonField.onFocusSelectAll = true;
-        jsonField.Select();
+        //jsonField.onFocusSelectAll = true;
+        //jsonField.Select();
+        AddText(galaxy.output);
     }
 
 }
